@@ -45,7 +45,7 @@ function generateModal(employee) {
             <p class="modal-text">${employee.email}</p>
             <p class="modal-text cap">${employee.location.city}</p>
             <hr>
-            <p class="modal-text">${employee.cell}</p>
+            <p class="modal-text">${convertCell(employee.cell)}</p>
             <p class="modal-text">${employee.location.street.number} ${employee.location.street.name} ${employee.location.city}, ${employee.location.state} ${employee.location.postcode}</p>
             <p class="modal-text">Birthday: ${convertDateString(employee.dob.date)}</p>
         </div>
@@ -76,3 +76,7 @@ function convertDateString(dateStr) {
     return [month, day, year].join('/');
 }
 
+//converts phone number to the desired format
+function convertCell(cellstr) {
+    return cellstr.replace('-', ' ');
+}
